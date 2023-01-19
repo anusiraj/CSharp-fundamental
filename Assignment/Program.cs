@@ -26,7 +26,8 @@
     Demo("hello", 1, 2, "world");
 
     //Challenge 6
-
+    SwapTwo("hellon", "whatsup");
+    SwapTwo(20, 30);
     //Challenge 7
     // string firstName, middleName, lastName;
     // ParseNames("Mary Elizabeth Smith", firstName, middleName, lastName);
@@ -121,23 +122,25 @@
   - Finally print everything out. 
   Example: Demo("hello", 1, 2, "world") 
   Expected result: hello world; 3 */
-  static void Demo( params object[] obj)
+  static void Demo(params object[] obj)
   {
     var builder = new System.Text.StringBuilder();
     int sum = 0;
-    for( int i = 0; i < obj.Length; i++) {
-        switch (obj[i])
-            {
-                case string str:
-                    builder.Append($"{str} ");
-                    break;
-                case int num:
-                    sum = sum + num;
-                    break;
-                default:
-                    break;
-            }
+    for (int i = 0; i < obj.Length; i++)
+    {
+      switch (obj[i])
+      {
+        case string str:
+          builder.Append($"{str} ");
+          break;
+        case int num:
+          sum = sum + num;
+          break;
+        default:
+          break;
+      }
     }
+    Console.WriteLine("Challenge 5");
     Console.WriteLine($"{builder.ToString()};{sum}");
 
   }
@@ -145,10 +148,31 @@
   /* Challenge 6. Write a function to swap 2 objects but only if they are of the same type 
   and if they’re string, lengths have to be more than 5. 
   If they’re numbers, they have to be more than 18. */
-  // static void SwapTwo()
-  // {
-
-  // }
+  static void SwapTwo(params object[] obj)
+  {
+    Console.WriteLine("Challenge 6");
+    string a = "Anu";
+    int number = 0;
+    for (int i = 0; i < obj.Length; i++)
+    {
+      switch (obj[0])
+      {
+        case string str when str.Length > 5:
+          a = (string)obj[0];
+          obj[0] = obj[1];
+          obj[1] = a;
+          break;
+        case int num when num > 18:
+          number = (int)obj[0];
+          obj[0] = obj[1];
+          obj[1] = number;
+          break;
+        default:
+          break;
+      }
+      Console.WriteLine(string.Join(" ", obj));
+    }
+  }
 
   /* Challenge 7. Write a function to parse the first name, middle name, last name given a string. 
   The names will be returned by using out modifier */
