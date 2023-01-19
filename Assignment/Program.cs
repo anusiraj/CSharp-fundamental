@@ -1,4 +1,6 @@
-﻿class Program
+﻿using System;
+
+class Program
 {
   static void Main(string[] args)
   {
@@ -34,7 +36,7 @@
     Console.WriteLine($"First name: {firstName}, middle name: {middleName}, last name: {lastName}");
 
     //Challenge 8
-    // GuessingGame();
+    GuessingGame();
   }
 
   /*
@@ -98,13 +100,7 @@
   static void CalculateDiff(int[][] jaggedArray)
   {
     Console.WriteLine("Challenge 4");
-    // int[][] a = new int[2][];
-    // for(int i = 0; i < jaggedArray.Length; i++) {
-    //     for( int j = 0; j < jaggedArray[i].Length; j++) {
-    //              a[i][j] = jaggedArray[i][j]-jaggedArray[i][j+1];
-    //     }
-    // }
-    // Console.WriteLine(a);
+    // 
   }
 
   /* 
@@ -127,6 +123,7 @@
   Expected result: hello world; 3 */
   static void Demo(params object[] obj)
   {
+    Console.WriteLine("Challenge 5");
     var builder = new System.Text.StringBuilder();
     int sum = 0;
     for (int i = 0; i < obj.Length; i++)
@@ -143,7 +140,6 @@
           break;
       }
     }
-    Console.WriteLine("Challenge 5");
     Console.WriteLine($"{builder.ToString()};{sum}");
 
   }
@@ -196,8 +192,20 @@
   The function will think of a random integer number (lets say within 100) 
   and ask the user to input a guess. 
   It’ll repeat the asking until the user puts the correct answer. */
-  //     static void GuessingGame()
-  //     {
-
-  //     }
+      static void GuessingGame()
+      {
+        Console.WriteLine("Challenge 8");
+        Console.WriteLine("Guess any number between 1 and 10!");
+        System.Random random = new System.Random();
+        int randomNum = random.Next(1,10);
+        Console.WriteLine($"Random number to test  = {randomNum}");
+        int guessedNumber = Convert.ToInt32(Console.ReadLine());
+        if(guessedNumber == randomNum){
+            Console.WriteLine("Number matches.You won");
+        }
+        else {
+            Console.WriteLine("Number not matched.");
+            GuessingGame();
+        }
+      }
 }
