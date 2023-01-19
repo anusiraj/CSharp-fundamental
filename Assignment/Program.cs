@@ -29,9 +29,9 @@
     SwapTwo("hellon", "whatsup");
     SwapTwo(20, 30);
     //Challenge 7
-    // string firstName, middleName, lastName;
-    // ParseNames("Mary Elizabeth Smith", firstName, middleName, lastName);
-    // Console.WriteLine($"First name: {firstName}, middle name: {middleName}, last name: {lastName}");
+    string firstName, middleName, lastName;
+    ParseNames("Mary Elizabeth Smith", out firstName, out middleName, out lastName);
+    Console.WriteLine($"First name: {firstName}, middle name: {middleName}, last name: {lastName}");
 
     //Challenge 8
     // GuessingGame();
@@ -45,6 +45,7 @@
   // */
   static int[] CommonItems(int[][] jaggedArray)
   {
+    Console.WriteLine("Challenge 1");
     int[] result = new int[2];
     // int m = 0;
     // for(int i =0; i < jaggedArray.Length; i++){
@@ -71,6 +72,7 @@
    */
   static void InverseJagged(int[][] jaggedArray)
   {
+    Console.WriteLine("Challenge 2");
     // int a = 0;
     // for (int i = 0; i < jaggedArray.Length; i++)
     // {
@@ -95,6 +97,7 @@
    */
   static void CalculateDiff(int[][] jaggedArray)
   {
+    Console.WriteLine("Challenge 4");
     // int[][] a = new int[2][];
     // for(int i = 0; i < jaggedArray.Length; i++) {
     //     for( int j = 0; j < jaggedArray[i].Length; j++) {
@@ -176,14 +179,18 @@
 
   /* Challenge 7. Write a function to parse the first name, middle name, last name given a string. 
   The names will be returned by using out modifier */
-  // static void ParseNames(
-  //     string input,
-  //     out string firstName,
-  //     out string middleName,
-  //     // out string lastName)
-  // {
-
-  // }
+  static void ParseNames(
+      string input,
+      out string firstName,
+      out string middleName,
+      out string lastName)
+  {
+    Console.WriteLine("Challenge 7");
+    List<string> names = input.Split(' ').ToList();
+    firstName = names[0];
+    middleName = names[1];
+    lastName = names[2];
+  }
 
   /* Challenge 8. Write a function that does the guessing game. 
   The function will think of a random integer number (lets say within 100) 
