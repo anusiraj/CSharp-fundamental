@@ -14,7 +14,7 @@
 
     //Challenge 3
     int[][] arr3 = { new int[] { 1, 2 }, new int[] { 1, 2, 3 } };
-    // CalculateDiff(arr3);
+    CalculateDiff(arr3);
     /* write method to print arr3 */
 
     //Challenge 4
@@ -23,7 +23,7 @@
     /* write method to print arr4Inverse */
 
     //Challenge 5
-    // Demo("hello", 1, 2, "world");
+    Demo("hello", 1, 2, "world");
 
     //Challenge 6
 
@@ -70,20 +70,20 @@
    */
   static void InverseJagged(int[][] jaggedArray)
   {
-    int a = 0;
-    for (int i = 0; i < jaggedArray.Length; i++)
-    {
-      for (int j = 0; j < jaggedArray[i].Length; j++)
-      {
-        for (int k = 1; k < jaggedArray[j].Length; k++)
-        {
-          a = jaggedArray[j][i];
-          jaggedArray[j][i] = jaggedArray[j][k];
-          jaggedArray[j][k] = a;
-        }
-        Console.WriteLine(string.Join(" ", jaggedArray[i]));
-      }
-    }
+    // int a = 0;
+    // for (int i = 0; i < jaggedArray.Length; i++)
+    // {
+    //   for (int j = 0; j < jaggedArray[i].Length; j++)
+    //   {
+    //     for (int k = 1; k < jaggedArray[j].Length; k++)
+    //     {
+    //       a = jaggedArray[j][i];
+    //       jaggedArray[j][i] = jaggedArray[j][k];
+    //       jaggedArray[j][k] = a;
+    //     }
+    //     Console.WriteLine(string.Join(" ", jaggedArray[i]));
+    //   }
+    // }
 
   }
 
@@ -92,10 +92,16 @@
   For example, int[][] arr = {new int[] {1,2}, new int[]{1,2,3}} 
   Expected result: int[][] arr = {new int[] {-1}, new int[]{-1, -1}}
    */
-  // static void CalculateDiff(int[][] jaggedArray)
-  // {
-
-  // }
+  static void CalculateDiff(int[][] jaggedArray)
+  {
+    // int[][] a = new int[2][];
+    // for(int i = 0; i < jaggedArray.Length; i++) {
+    //     for( int j = 0; j < jaggedArray[i].Length; j++) {
+    //              a[i][j] = jaggedArray[i][j]-jaggedArray[i][j+1];
+    //     }
+    // }
+    // Console.WriteLine(a);
+  }
 
   /* 
   Challenge 4. Inverse column/row of a rectangular array.
@@ -115,10 +121,26 @@
   - Finally print everything out. 
   Example: Demo("hello", 1, 2, "world") 
   Expected result: hello world; 3 */
-  // static void Demo()
-  // {
+  static void Demo( params object[] obj)
+  {
+    var builder = new System.Text.StringBuilder();
+    int sum = 0;
+    for( int i = 0; i < obj.Length; i++) {
+        switch (obj[i])
+            {
+                case string str:
+                    builder.Append($"{str} ");
+                    break;
+                case int num:
+                    sum = sum + num;
+                    break;
+                default:
+                    break;
+            }
+    }
+    Console.WriteLine($"{builder.ToString()};{sum}");
 
-  // }
+  }
 
   /* Challenge 6. Write a function to swap 2 objects but only if they are of the same type 
   and if they’re string, lengths have to be more than 5. 
