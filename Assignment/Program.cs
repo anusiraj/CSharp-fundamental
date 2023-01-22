@@ -49,19 +49,21 @@ class Program
   {
     Console.WriteLine("Challenge 1");
     int[] result = new int[2];
-    // int m = 0;
-    // for(int i =0; i < jaggedArray.Length; i++){
-    //     for( int j = 1; j< jaggedArray[i].Length; j++){
-    //         for(int k = 0; k< jaggedArray[j].Length; k++ ){
-    //              if(jaggedArray[m][i] == jaggedArray[j][k]) {
-    //             // Console.WriteLine(jaggedArray[j][k]);
-    //             result[i] = jaggedArray[j][k];
-    //             Console.Write(result[i]);
-    //             }
-    //             Console.WriteLine();
-    //         }
-    //     }
-    //  }
+    for (int i = 0; i < jaggedArray.Length; i++)
+    {
+      int firstElement = jaggedArray[0][i];
+      int secondElement = jaggedArray[0][i + 1];
+      for (int j = 0; j <= jaggedArray[i].Length; j++)
+      {
+        if (firstElement == jaggedArray[i + 1][j] || secondElement == jaggedArray[i + 1][j])
+        {
+          result[i] = firstElement;
+          result[i + 1] = secondElement;
+          Console.WriteLine(string.Join(" ", result));
+        }
+      }
+      break;
+    }
     return result;
 
   }
@@ -192,20 +194,22 @@ class Program
   The function will think of a random integer number (lets say within 100) 
   and ask the user to input a guess. 
   It’ll repeat the asking until the user puts the correct answer. */
-      static void GuessingGame()
-      {
-        Console.WriteLine("Challenge 8");
-        Console.WriteLine("Guess any number between 1 and 10!");
-        System.Random random = new System.Random();
-        int randomNum = random.Next(1,10);
-        Console.WriteLine($"Random number to test  = {randomNum}");
-        int guessedNumber = Convert.ToInt32(Console.ReadLine());
-        if(guessedNumber == randomNum){
-            Console.WriteLine("Number matches.You won");
-        }
-        else {
-            Console.WriteLine("Number not matched.");
-            GuessingGame();
-        }
-      }
+  static void GuessingGame()
+  {
+    Console.WriteLine("Challenge 8");
+    Console.WriteLine("Guess any number between 1 and 10!");
+    System.Random random = new System.Random();
+    int randomNum = random.Next(1, 10);
+    Console.WriteLine($"Random number to test  = {randomNum}");
+    int guessedNumber = Convert.ToInt32(Console.ReadLine());
+    if (guessedNumber == randomNum)
+    {
+      Console.WriteLine("Number matches.You won");
+    }
+    else
+    {
+      Console.WriteLine("Number not matched.");
+      GuessingGame();
+    }
+  }
 }
